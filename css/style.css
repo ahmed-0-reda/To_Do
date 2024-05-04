@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  color: #fff;
+  font-size: 20px;
+}
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", sans-serif;
+  margin: 0;
+  background-color: var(--main-color);
+}
+:root {
+  --main-color: #00272B;
+  --second-color: #E76F51;
+  --third-color: #E9C46A;
+  --main-width: 900px;
+}
+.container {
+  width: var(--main-width);
+  margin: 50px auto;
+  background-color: var(--second-color);
+  padding: 20px;
+  position: relative;
+}
+.container .form {
+  background-color: var(--main-color);
+  padding: 20px;
+  /* border: 5px solid var(--main-color); */
+  display: flex;
+  justify-content: space-between;
+}
+.container .form input {
+  width: 100%;
+  color: #000;
+  font-size: 20px;
+  padding: 0 10px;
+  position: relative;
+}
+.container .form input:focus {
+  outline: none;
+  border: 1px solid #57e7bc;
+}
+
+.container .form input::placeholder {
+  color: var(--main-color);
+}
+.container .form p {
+  margin-left: 10px;
+  background-color: var(--third-color);
+  color: #fff;
+  padding: 15px;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+}
+.container > div:last-child {
+  position: absolute;
+  background-color: #ffffff67;
+  padding: 15px;
+  border-radius: 30px;
+  display: none;
+  transition: 1s;
+  user-select: none;
+}
+.container > div:last-child.show {
+  display: block;
+}
+.container > div:last-child::after {
+  content: "";
+  position: absolute;
+  border-width: 10px;
+  border-color: transparent transparent #ffffff67;
+  border-style: solid;
+  left: 30%;
+  top: -20px;
+  transform: translateX(-50%);
+}
+
+.showList {
+  width: var(--main-width);
+  margin: 30px auto;
+  background-color: var(--second-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 3px solid var(--third-color);
+  overflow: hidden;
+}
+.showList div {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--third-color);
+  padding: 15px;
+  align-items: center;
+  border: 5px solid var(--main-color);
+  transition: 0.5s;
+  position: relative;
+  z-index: 2;
+}
+.showList div:hover {
+  opacity: 0.5;
+  transform: translatex(10px), skew(10px, 10px);
+}
+.showList div.done {
+  opacity: 0.2;
+}
+.showList div:not(:last-child) {
+  margin-bottom: 15px;
+}
+.showList div p {
+  color: #fff;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.showList div span {
+  background-color: var(--main-color);
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.showList::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -200px;
+  width: 200%;
+  height: 500px;
+  background-color: var(--third-color);
+  z-index: 0;
+  transform: translatey(0%) skew(0, -30deg);
+  animation: wave 5s ease-in-out alternate infinite;
+  border-radius: 50%;
+}
+.del_All {
+  width: fit-content;
+  color: #ffffff;
+  font-weight: bolder;
+  text-transform: capitalize;
+  cursor: pointer;
+  margin: 30px auto;
+  background: var(--second-color);
+  padding: 20px 10px;
+  border: 1px solid var(--third-color);
+}
+@keyframes wave {
+  from {
+    transform: translatex(100px) skew(0, -30deg);
+  }
+  to {
+    transform: translatex(10px) skew(10deg, 0);
+  }
+}
